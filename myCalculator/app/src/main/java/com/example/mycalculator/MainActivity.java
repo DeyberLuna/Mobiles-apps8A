@@ -108,28 +108,28 @@ public class MainActivity extends AppCompatActivity {
            String resultTxt=String.valueOf(result);
            txtResult.setText(resultTxt);
            result=0;
-           Toast.makeText(this, "Resultado: "+resultTxt, Toast.LENGTH_LONG).show();
+           Toast.makeText(this, "Resultado: "+resultTxt, Toast.LENGTH_SHORT).show();
 
        }else if(spinenrItem.equals("Restar")){
            result=num1-num2;
            String resultTxt=String.valueOf(result);
            txtResult.setText(resultTxt);
            result=0;
-           Toast.makeText(this, "Resultado: "+resultTxt, Toast.LENGTH_LONG).show();
+           Toast.makeText(this, "Resultado: "+resultTxt, Toast.LENGTH_SHORT).show();
 
        }else  if(spinenrItem.equals("Multiplicar")){
            result=num1*num2;
            String resultTxt=String.valueOf(result);
            txtResult.setText(resultTxt);
            result=0;
-           Toast.makeText(this, "Resultado: "+resultTxt, Toast.LENGTH_LONG).show();
+           Toast.makeText(this, "Resultado: "+resultTxt, Toast.LENGTH_SHORT).show();
 
        }else if(spinenrItem.equals("Dividir")){
            result=num1/num2;
            String resultTxt=String.valueOf(result);
            txtResult.setText(resultTxt);
            result=0;
-           Toast.makeText(this, "Resultado: "+resultTxt, Toast.LENGTH_LONG).show();
+           Toast.makeText(this, "Resultado: "+resultTxt, Toast.LENGTH_SHORT).show();
 
        }else{
            Toast.makeText(this, "Hubo un error", Toast.LENGTH_LONG).show();

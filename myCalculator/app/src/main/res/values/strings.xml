@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">myCalculator</string>
+    <string name="app_name">CV1.0</string>
     <string name="title">Calculadora</string>
     <string name="firstnumber">First Number</string>
     <string name="secondnumber">Second Number</string>
