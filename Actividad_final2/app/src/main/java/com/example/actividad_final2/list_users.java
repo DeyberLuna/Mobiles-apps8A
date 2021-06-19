@@ -39,24 +39,33 @@ public class list_users extends AppCompatActivity implements SearchView.OnQueryT
     ArrayList<User> female= new ArrayList<User>();
     SearchView searchView;
     Dialog dialog;
+    String clave;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_users);
         this.setTitle(R.string.app_list_name);
-        searchView=findViewById(R.id.search_users);
-        dialog=new Dialog(this);
-        dialog.setContentView(R.layout.cardview_welcome);
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        Button btn_alert=dialog.findViewById(R.id.btn_close_alert);
-        dialog.show();
-        btn_alert.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-            }
-        });
+        clave=getIntent().getExtras().getString("clave");
+
+        if(clave.equals("main")){
+            clave="";
+            searchView=findViewById(R.id.search_users);
+            dialog=new Dialog(this);
+            dialog.setContentView(R.layout.cardview_welcome);
+            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            Button btn_alert=dialog.findViewById(R.id.btn_close_alert);
+            dialog.show();
+            btn_alert.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dialog.dismiss();
+                }
+            });
+        }else if(clave.equals("")){
+
+        }
+
 
 
         if (Build.VERSION.SDK_INT >= 21) {
@@ -152,6 +161,7 @@ public class list_users extends AppCompatActivity implements SearchView.OnQueryT
                 return true;
             case R.id.option_about:
                 Intent intent=new Intent(list_users.this,About_me.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 return true;
             case R.id.option_logout:

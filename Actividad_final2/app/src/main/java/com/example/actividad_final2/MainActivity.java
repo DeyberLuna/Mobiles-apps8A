@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         editPass.getText().toString().equals(shared.getString("password",""))){
                             Intent inten= new Intent(MainActivity.this,list_users.class);
                             inten.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            inten.putExtra("clave","main");
                             startActivity(inten);
                             break;
                         }else{

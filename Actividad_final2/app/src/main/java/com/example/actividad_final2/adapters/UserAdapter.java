@@ -79,6 +79,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHoldeUser>
                     i.putExtra("name",name.getText().toString());
                     i.putExtra("email",email.getText().toString());
                     i.putExtra("gender",userDatos.getGender());
+                    i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
                     ctx.startActivity(i);
 

@@ -37,6 +37,8 @@ public class About_me extends AppCompatActivity {
 
     private void returnhome() {
         Intent i= new Intent(About_me.this,list_users.class);
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        i.putExtra("clave","about");
         startActivity(i);
 
     }

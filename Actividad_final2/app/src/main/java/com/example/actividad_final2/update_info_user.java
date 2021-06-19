@@ -47,6 +47,7 @@ public class update_info_user extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent= new Intent(update_info_user.this,list_users.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.putExtra("clave","update");
                 startActivity(intent);
             }
         });
@@ -125,6 +126,7 @@ public class update_info_user extends AppCompatActivity {
 
     private void backScreen() {
         Intent i= new Intent(update_info_user.this,list_users.class);
+        i.putExtra("clave","update");
         startActivity(i);
     }
 }
