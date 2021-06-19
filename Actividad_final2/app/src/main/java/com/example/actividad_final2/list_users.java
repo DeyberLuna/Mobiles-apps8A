@@ -9,7 +9,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -20,6 +22,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.SearchView;
 import android.widget.Toast;
 import android.widget.Toolbar;
@@ -32,7 +35,10 @@ import java.util.ArrayList;
 public class list_users extends AppCompatActivity implements SearchView.OnQueryTextListener {
     private RecyclerView rv;
     ArrayList<User> arreglo= new ArrayList<User>();
+    ArrayList<User> male= new ArrayList<User>();
+    ArrayList<User> female= new ArrayList<User>();
     SearchView searchView;
+    Dialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +46,17 @@ public class list_users extends AppCompatActivity implements SearchView.OnQueryT
         setContentView(R.layout.activity_list_users);
         this.setTitle(R.string.app_list_name);
         searchView=findViewById(R.id.search_users);
-
+        dialog=new Dialog(this);
+        dialog.setContentView(R.layout.cardview_welcome);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        Button btn_alert=dialog.findViewById(R.id.btn_close_alert);
+        dialog.show();
+        btn_alert.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
 
 
         if (Build.VERSION.SDK_INT >= 21) {
@@ -61,6 +77,19 @@ public class list_users extends AppCompatActivity implements SearchView.OnQueryT
         arreglo.add(new User("alejandra","alejandra@gmail.com","female"));
         arreglo.add(new User("rodrigo","esteban@gmail.com","male"));
         arreglo.add(new User("esteban","esteban@gmail.com","male"));
+
+        male.add(new User("fernando","fernando@gmail.com","male"));
+        male.add(new User("hernan","hernan@gmail.com","male"));
+        male.add(new User("sebastian","sebastian@gmail.com","male"));
+        male.add(new User("luis","luis@gmail.com","male"));
+        male.add(new User("rodrigo","esteban@gmail.com","male"));
+        male.add(new User("esteban","esteban@gmail.com","male"));
+
+
+        female.add(new User("maria","maria@gmail.com","female"));
+        female.add(new User("diana","diana@gmail.com","female"));
+        female.add(new User("alejandra","alejandra@gmail.com","female"));
+
 
 
         rv=findViewById(R.id.recycler_list);
@@ -95,13 +124,31 @@ public class list_users extends AppCompatActivity implements SearchView.OnQueryT
 
                 return true;
             case R.id.option_male:
-                Toast.makeText(this, "male", Toast.LENGTH_SHORT).show();
+                rv.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
+                LinearLayoutManager malelayout=new LinearLayoutManager(this);
+                rv.setLayoutManager(malelayout);
+
+                UserAdapter maleA= new UserAdapter(male,this);
+                rv.setAdapter(maleA);
+
                 return true;
             case R.id.option_female:
-                Toast.makeText(this, "female", Toast.LENGTH_SHORT).show();
+                rv.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
+                LinearLayoutManager layoutM=new LinearLayoutManager(this);
+                rv.setLayoutManager(layoutM);
+
+                UserAdapter femaleAdapter= new UserAdapter(female,this);
+                rv.setAdapter(femaleAdapter);
+
                 return true;
             case R.id.option_all:
-                Toast.makeText(this, "all", Toast.LENGTH_SHORT).show();
+                rv.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
+                LinearLayoutManager lmanager=new LinearLayoutManager(this);
+                rv.setLayoutManager(lmanager);
+
+                UserAdapter userAdpt= new UserAdapter(arreglo,this);
+                rv.setAdapter(userAdpt);
+
                 return true;
             case R.id.option_about:
                 Intent intent=new Intent(list_users.this,About_me.class);

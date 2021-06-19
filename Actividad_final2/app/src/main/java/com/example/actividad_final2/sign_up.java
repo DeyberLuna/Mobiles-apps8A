@@ -2,7 +2,9 @@ package com.example.actividad_final2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Patterns;
@@ -14,7 +16,6 @@ import android.widget.Toast;
 import java.util.regex.Pattern;
 
 public class sign_up extends AppCompatActivity {
-
      Button btn_register;
      EditText username,first_name,last_name,password,conf_password;
     @Override
@@ -27,6 +28,7 @@ public class sign_up extends AppCompatActivity {
         last_name=findViewById(R.id.input_lastname);
         password=findViewById(R.id.input_pass);
         conf_password=findViewById(R.id.input_confpass);
+
 
 
 
@@ -50,6 +52,12 @@ public class sign_up extends AppCompatActivity {
             }else{
 
                 if(password.getText().toString().equals(conf_password.getText().toString())){
+                    SharedPreferences preferencias=getSharedPreferences("login", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor=preferencias.edit();
+                    editor.putString("username", username.getText().toString());
+                    editor.putString("password", password.getText().toString());
+                    editor.commit();
+                    finish();
 
                     Intent i= new Intent(sign_up.this,MainActivity.class);
                     i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -62,6 +70,7 @@ public class sign_up extends AppCompatActivity {
         }else{
             Toast.makeText(this, "Completa los datos", Toast.LENGTH_SHORT).show();
         }
+
     }
     private boolean validarEmail(String email) {
         Pattern pattern = Patterns.EMAIL_ADDRESS;
