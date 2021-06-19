@@ -32,14 +32,15 @@ import com.example.actividad_final2.models.User;
 
 import java.util.ArrayList;
 
-public class list_users extends AppCompatActivity implements SearchView.OnQueryTextListener {
+public class list_users extends AppCompatActivity {
     private RecyclerView rv;
     ArrayList<User> arreglo= new ArrayList<User>();
     ArrayList<User> male= new ArrayList<User>();
     ArrayList<User> female= new ArrayList<User>();
-    SearchView searchView;
+    SearchView search_All;
     Dialog dialog;
     String clave;
+    UserAdapter userAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,9 +49,10 @@ public class list_users extends AppCompatActivity implements SearchView.OnQueryT
         this.setTitle(R.string.app_list_name);
         clave=getIntent().getExtras().getString("clave");
 
+
         if(clave.equals("main")){
             clave="";
-            searchView=findViewById(R.id.search_users);
+
             dialog=new Dialog(this);
             dialog.setContentView(R.layout.cardview_welcome);
             dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
@@ -106,8 +108,8 @@ public class list_users extends AppCompatActivity implements SearchView.OnQueryT
         LinearLayoutManager lmanager=new LinearLayoutManager(this);
         rv.setLayoutManager(lmanager);
 
-        UserAdapter userAdpt= new UserAdapter(arreglo,this);
-        rv.setAdapter(userAdpt);
+        userAdapter= new UserAdapter(arreglo,this);
+        rv.setAdapter(userAdapter);
 
 
     }
@@ -116,7 +118,21 @@ public class list_users extends AppCompatActivity implements SearchView.OnQueryT
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_options_list, menu);
-        return true;
+        MenuItem menuItem = menu.findItem(R.id.search_btn);
+        search_All = (SearchView) menuItem.getActionView();
+        search_All.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                userAdapter.getFilter().filter(newText);
+                return false;
+            }
+        });
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
@@ -124,12 +140,6 @@ public class list_users extends AppCompatActivity implements SearchView.OnQueryT
 
         switch (item.getItemId()){
             case R.id.search_btn:
-                if(searchView.getVisibility()==View.GONE){
-                    searchView.setVisibility(View.VISIBLE);
-
-                }else {
-                    searchView.setVisibility(View.GONE);
-                }
 
                 return true;
             case R.id.option_male:
@@ -139,6 +149,18 @@ public class list_users extends AppCompatActivity implements SearchView.OnQueryT
 
                 UserAdapter maleA= new UserAdapter(male,this);
                 rv.setAdapter(maleA);
+                search_All.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                    @Override
+                    public boolean onQueryTextSubmit(String query) {
+                        return false;
+                    }
+
+                    @Override
+                    public boolean onQueryTextChange(String newText) {
+                        maleA.getFilter().filter(newText);
+                        return false;
+                    }
+                });
 
                 return true;
             case R.id.option_female:
@@ -148,6 +170,18 @@ public class list_users extends AppCompatActivity implements SearchView.OnQueryT
 
                 UserAdapter femaleAdapter= new UserAdapter(female,this);
                 rv.setAdapter(femaleAdapter);
+                search_All.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                    @Override
+                    public boolean onQueryTextSubmit(String query) {
+                        return false;
+                    }
+
+                    @Override
+                    public boolean onQueryTextChange(String newText) {
+                        femaleAdapter.getFilter().filter(newText);
+                        return false;
+                    }
+                });
 
                 return true;
             case R.id.option_all:
@@ -157,6 +191,18 @@ public class list_users extends AppCompatActivity implements SearchView.OnQueryT
 
                 UserAdapter userAdpt= new UserAdapter(arreglo,this);
                 rv.setAdapter(userAdpt);
+                search_All.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                    @Override
+                    public boolean onQueryTextSubmit(String query) {
+                        return false;
+                    }
+
+                    @Override
+                    public boolean onQueryTextChange(String newText) {
+                        userAdpt.getFilter().filter(newText);
+                        return false;
+                    }
+                });
 
                 return true;
             case R.id.option_about:
@@ -176,16 +222,7 @@ public class list_users extends AppCompatActivity implements SearchView.OnQueryT
 
     }
 
-    @Override
-    public boolean onQueryTextSubmit(String query) {
-        return false;
-    }
 
-    @Override
-    public boolean onQueryTextChange(String newText) {
-        return false;
-    }
-    private void initlistener(){
-        searchView.setOnQueryTextListener(this);
-    }
+
+
 }

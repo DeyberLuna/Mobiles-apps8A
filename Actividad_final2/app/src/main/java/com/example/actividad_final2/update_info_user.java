@@ -4,7 +4,9 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -25,13 +27,16 @@ import java.util.Calendar;
 
 public class update_info_user extends AppCompatActivity {
     private Window window;
-    private EditText name,username,gender;
+    private EditText name,username,gender,password;
     private Spinner sp_gender,sp_city;
     private ImageView btn_date;
     private TextView label_date;
     private Button btn_update_user;
     String gender_selected="Male";
     String city_selected="Colombia";
+    String pass="";
+ 
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,10 +46,18 @@ public class update_info_user extends AppCompatActivity {
         sp_gender=findViewById(R.id.spinner_gender);
         btn_date=findViewById(R.id.btn_update_date);
         label_date=findViewById(R.id.label_date_update);
+        password=findViewById(R.id.input_pass_update);
+
+        pass=password.getText().toString();
+
+
+
+
         btn_update_user=findViewById(R.id.btn_update_user);
         btn_update_user.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent= new Intent(update_info_user.this,list_users.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 intent.putExtra("clave","update");
@@ -82,6 +95,7 @@ public class update_info_user extends AppCompatActivity {
         String nameExtra=getIntent().getStringExtra("name");
         String emailExtra=getIntent().getStringExtra("email");
         String genderExtra=getIntent().getStringExtra("gender");
+        String password=getIntent().getStringExtra("pass");
         name.setText(nameExtra);
         username.setText(emailExtra);
 

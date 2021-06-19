@@ -236,6 +236,7 @@ public class CAFData {
     }
 
     public String toText() {
+
         return new String(byteData.array(), Charset.forName("UTF-8"));
     }
 

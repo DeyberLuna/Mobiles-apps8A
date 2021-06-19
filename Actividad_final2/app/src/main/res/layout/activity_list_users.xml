@@ -7,12 +7,7 @@
     android:orientation="vertical"
     tools:context=".list_users"
     tools:menu="@menu/menu_options_list">
-    <SearchView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:queryHint="search user"
-        android:id="@+id/search_users"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_list"
         android:layout_width="match_parent"
