@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+
+            android:orientation="vertical">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/input_text"
+                android:textSize="18sp"
+                android:inputType="text"
+                android:autofillHints="@string/edit_hint"
+                android:hint="@string/edit_hint"/>
+            <Button
+                android:id="@+id/btn_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:textSize="18sp"
+                android:text="@string/btn_search" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/green_ligth"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/label_current"
+                android:layout_width="match_parent"
+                android:paddingStart="20dp"
+                android:gravity="center_vertical"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textSize="18sp"
+                android:text="@string/label_current"
+                tools:ignore="RtlSymmetry" />
+            <TextView
+                android:id="@+id/text_current"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textSize="18sp"
+                android:gravity="center_vertical"
+                android:hint="@string/current_hint"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/blue_ligth"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/label_min"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:paddingStart="20dp"
+                android:textSize="18sp"
+                android:gravity="center_vertical"
+                android:text="@string/label_min"
+                tools:ignore="RtlSymmetry" />
+            <TextView
+                android:id="@+id/text_min"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textSize="18sp"
+                android:gravity="center_vertical"
+                android:hint="@string/min_hint"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/yellow_ligth"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/label_max"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:paddingStart="20dp"
+                android:textSize="18sp"
+                android:gravity="center_vertical"
+                android:text="@string/label_max"
+                tools:ignore="RtlSymmetry" />
+            <TextView
+                android:id="@+id/text_max"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textSize="18sp"
+                android:gravity="center_vertical"
+                android:hint="@string/max_hint"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/red_ligth"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/label_weather"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:paddingStart="20dp"
+                android:textSize="18sp"
+                android:gravity="center_vertical"
+                android:text="@string/label_wheather"
+                tools:ignore="RtlSymmetry" />
+            <TextView
+                android:id="@+id/text_weather"
+                android:layout_width="match_parent"
+                android:gravity="center_vertical"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textSize="18sp"
+                android:hint="@string/hero_weather_hint"
+                />
+        </LinearLayout>
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:contentDescription="@string/image_content"
+                android:id="@+id/image_weather"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_maps"
+                android:textSize="18sp"
+                android:layout_marginTop="40dp"
+                android:text="@string/btn_maps"/>
+        </LinearLayout>
+    </ScrollView>
+

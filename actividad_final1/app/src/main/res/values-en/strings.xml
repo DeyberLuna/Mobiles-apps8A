@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">actividad_final1</string>
+    <string name="appbar_name">How is the weather?</string>
+    <string name="btn_search">SEARCH WEATHER</string>
+    <string name="label_current">Current:</string>
+    <string name="label_min">Min:</string>
+    <string name="label_max">Max:</string>
+    <string name="label_wheather">Weather:</string>
+
+    <string name="btn_maps">GO TO MAPS</string>
+    <string name="edit_hint">Ex. Cali,Co</string>
+    <string name="current_hint">Current weather</string>
+    <string name="min_hint">Current min</string>
+    <string name="max_hint">Current max</string>
+    <string name="hero_weather_hint">Here weather Val</string>
+    <string name="image_content">Image with description weather!</string>
+    <string name="loading">Searching....</string>
+</resources>

@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">actividad_final1</string>
+    <string name="appbar_name">Como esta el clima?</string>
+    <string name="btn_search">BUSCAR CLIMA</string>
+    <string name="label_current">Actual:</string>
+    <string name="label_min">Min:</string>
+    <string name="label_max">Max:</string>
+    <string name="label_wheather">Clima:</string>
+
+    <string name="btn_maps">IR AL MAPA</string>
+    <string name="edit_hint">Ex. Cali,Co</string>
+    <string name="current_hint">Clima actual</string>
+    <string name="min_hint">Minimo actual</string>
+    <string name="max_hint">Maximo actual</string>
+    <string name="hero_weather_hint">Aqui valor clima</string>
+    <string name="image_content">Imagen con descripcion del clima!</string>
+    <string name="loading">Buscando..</string>
+
+
+</resources>

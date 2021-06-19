@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Actividad_final2</string>
+    <string name="app_list_name">User list</string>
+    <string name="app_update">Update user</string>
+    <string name="label_user">Username</string>
+    <string name="label_pass">Password</string>
+    <string name="sign_in">SIGN IN</string>
+    <string name="sign_up">SIGN UP</string>
+    <string name="register_name">Firstname</string>
+    <string name="register_lastname">Lastname</string>
+    <string name="register_username">Username</string>
+    <string name="register_password">Password</string>
+    <string name="register_confirmpass">Confirm password</string>
+    <string name="register_btn_register">REGISTER</string>
+    <string name="user_list">User list</string>
+    <string name="birth">Birth</string>
+    <string name="country">Country</string>
+    <string name="phone">Phone</string>
+    <string name="gender">Gender</string>
+    <string name="btn_update">UPDATE</string>
+    <string name="label_signup">SIGN UP!</string>
+    <string name="menu_male">List male users</string>
+    <string name="menu_female">List female users</string>
+    <string name="menu_all">List all users</string>
+    <string name="menu_About">About me</string>
+    <string name="menu_logout">Logout</string>
+
+    <string name="description_developer">
+        Hola mi nombre es Deyber Luna, soy developer junior con conocimientos en diferentes lenguajes de programacion
+        como JavaScript,Java,Kotlin,Python, de igual manera tengo experiencia en el desarrollo
+        de aplicaciones mobiles con entornos de desarrollo como Android Studio o frameworks como
+        react-native,Soy un apasionado de la programacion que cada dia intenta explorar nuevos
+        campos del conocimiento.
+
+    </string>
+
+</resources>

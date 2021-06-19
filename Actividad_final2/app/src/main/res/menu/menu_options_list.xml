@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:title=""
+        android:id="@+id/search_btn"
+        android:icon="@drawable/ic_search"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="settings"
+        android:icon="@drawable/ic_menu"
+        app:showAsAction="always">
+
+         <menu>
+        <item android:id="@+id/option_male"
+            android:title="@string/menu_male"/>
+
+        <item android:id="@+id/option_female"
+            android:title="@string/menu_female"/>
+
+        <item android:id="@+id/option_all"
+            android:title="@string/menu_all"/>
+
+        <item android:id="@+id/option_about"
+            android:title="@string/menu_About"/>
+
+        <item android:id="@+id/option_logout"
+            android:title="@string/menu_logout"/>
+
+      </menu>
+
+    </item>
+</menu>
